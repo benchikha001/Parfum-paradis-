@@ -1,2 +1,196 @@
 <!DOCTYPE html>
-<!-- (المحتوى الكامل اللي جهزناه في الرد السابق هنا، قصيناه هنا للتنظيم) -->
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parfum Paradis - متجر العطور</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+    body {
+      margin: 0;
+      background-color: #0a0a0a;
+      color: #d4af37;
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+    }
+    header {
+      background: linear-gradient(90deg, #000000, #3d2f00);
+      padding: 20px;
+      text-align: center;
+      font-size: 2.2em;
+      font-weight: 700;
+      letter-spacing: 3px;
+      border-bottom: 3px solid #d4af37;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    h2 {
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .perfumes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .perfume-card {
+      background: #1a1a1a;
+      border: 2px solid #d4af37;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #d4af37aa;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    .perfume-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ffd700ff;
+    }
+    .perfume-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background-color: #333;
+    }
+    .perfume-content {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .perfume-name {
+      font-size: 1.2em;
+      font-weight: 700;
+      margin-bottom: 8px;
+      min-height: 48px;
+    }
+    .perfume-description {
+      font-size: 0.9em;
+      color: #f5e1a4;
+      flex-grow: 1;
+      margin-bottom: 12px;
+      min-height: 72px;
+    }
+    .perfume-price {
+      font-weight: 700;
+      font-size: 1em;
+      text-align: center;
+      color: #d4af37;
+    }
+    .order-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px;
+      background-color: #d4af37;
+      color: #000;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .order-button:hover {
+      background-color: #ffd700;
+    }
+    footer {
+      margin-top: 40px;
+      padding: 15px;
+      text-align: center;
+      background: #1a1a1a;
+      border-top: 3px solid #d4af37;
+      font-weight: 600;
+      font-size: 1em;
+    }
+    a.call {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  Parfum Paradis - متجر العطور الفاخر
+</header>
+
+<div class="container">
+
+  <section>
+    <h2>عطور الرجال</h2>
+    <div class="perfumes-grid" id="men-perfumes"></div>
+  </section>
+
+  <section>
+    <h2>عطور النساء</h2>
+    <div class="perfumes-grid" id="women-perfumes"></div>
+  </section>
+
+</div>
+
+<footer>
+  للطلب والاستفسار: <a href="tel:+21654819440" class="call">54819440</a> - المنستير، تونس
+</footer>
+
+<script>
+  const menPerfumes = [
+    {name:"Dior Sauvage", desc:"رائحة عطرية قوية ومنعشة تناسب الرجل العصري.", img:"https://via.placeholder.com/220x180?text=Dior+Sauvage", price50:25, price100:40},
+    {name:"Bleu Chanel", desc:"عطر منعش وأنيق يناسب كل المناسبات.", img:"https://via.placeholder.com/220x180?text=Bleu+Chanel", price50:25, price100:40},
+    {name:"Scandal", desc:"رائحة جريئة ومميزة تجذب الأنظار.", img:"https://via.placeholder.com/220x180?text=Scandal", price50:25, price100:40},
+    {name:"One Million", desc:"عطر فاخر يجمع بين التوابل والفواكه.", img:"https://via.placeholder.com/220x180?text=One+Million", price50:25, price100:40},
+    {name:"Versace Eros", desc:"رائحة مثيرة تجمع بين النعناع والفواكه.", img:"https://via.placeholder.com/220x180?text=Versace+Eros", price50:25, price100:40},
+    {name:"Y YSL", desc:"عطر أنيق يجمع بين الروائح الخشبية والعطرية.", img:"https://via.placeholder.com/220x180?text=Y+YSL", price50:25, price100:40},
+    {name:"Class", desc:"رائحة كلاسيكية راقية تناسب جميع المناسبات.", img:"https://via.placeholder.com/220x180?text=Class", price50:25, price100:40},
+    {name:"Gentleman", desc:"عطر جذاب وأنيق يعبر عن الذوق الرفيع.", img:"https://via.placeholder.com/220x180?text=Gentleman", price50:25, price100:40},
+    {name:"Cartier Déclaration", desc:"رائحة دافئة ومميزة تناسب الرجل الواثق.", img:"https://via.placeholder.com/220x180?text=Cartier+Déclaration", price50:25, price100:40},
+    {name:"Silver Scent", desc:"عطر راقٍ يحمل لمسة من الأناقة والحداثة.", img:"https://via.placeholder.com/220x180?text=Silver+Scent", price50:25, price100:40}
+  ];
+
+  const womenPerfumes = [
+    {name:"Kayali Marshmellow", desc:"رائحة حلوة وناعمة تشبه المارشميلو.", img:"https://via.placeholder.com/220x180?text=Kayali+Marshmellow", price50:25, price100:40},
+    {name:"Coco Vanille", desc:"عطر دافئ بنكهة الفانيليا اللذيذة.", img:"https://via.placeholder.com/220x180?text=Coco+Vanille", price50:25, price100:40},
+    {name:"Interdit Rouge", desc:"رائحة جريئة وحسية تترك انطباعًا قويًا.", img:"https://via.placeholder.com/220x180?text=Interdit+Rouge", price50:25, price100:40},
+    {name:"Libre", desc:"عطر حر يجمع بين الأنوثة والقوة.", img:"https://via.placeholder.com/220x180?text=Libre", price50:25, price100:40},
+    {name:"Scandal", desc:"رائحة جذابة ومغرية تبرز الأنوثة.", img:"https://via.placeholder.com/220x180?text=Scandal", price50:25, price100:40},
+    {name:"La Vie Est Belle", desc:"عطر فرنسي أنيق يحكي قصة الجمال.", img:"https://via.placeholder.com/220x180?text=La+Vie+Est+Belle", price50:25, price100:40},
+    {name:"Baccarat Rouge", desc:"رائحة فاخرة وغامضة تناسب السهرات.", img:"https://via.placeholder.com/220x180?text=Baccarat+Rouge", price50:25, price100:40},
+    {name:"My Way", desc:"عطر أنثوي منعش يعكس الحرية.", img:"https://via.placeholder.com/220x180?text=My+Way", price50:25, price100:40},
+    {name:"Yara Rose", desc:"رائحة وردية ناعمة وجذابة.", img:"https://via.placeholder.com/220x180?text=Yara+Rose", price50:25, price100:40},
+    {name:"Gucci Bloom", desc:"عطر زهري غني بالأناقة والرقي.", img:"https://via.placeholder.com/220x180?text=Gucci+Bloom", price50:25, price100:40}
+  ];
+
+  function displayPerfumes(containerId, perfumes) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    perfumes.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'perfume-card';
+      card.innerHTML = `
+        <img src="${p.img}" alt="${p.name}" class="perfume-image" />
+        <div class="perfume-content">
+          <div class="perfume-name">${p.name}</div>
+          <div class="perfume-description">${p.desc}</div>
+          <div class="perfume-price">
+            50 مل: ${p.price50} د.ت | 100 مل: ${p.price100} د.ت
+          </div>
+          <a class="order-button" href="https://wa.me/21654819440?text=أهلا، أود طلب عطر ${encodeURIComponent(p.name)}" target="_blank">طلب عبر واتساب</a>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  displayPerfumes('men-perfumes', menPerfumes);
+  displayPerfumes('women-perfumes', womenPerfumes);
+</script>
+
+</body>
+</html>
